@@ -1,0 +1,34 @@
+@import '../../style/variables'
+
+.post-list__item
+    width: 100%
+    background: $gray
+    padding: 30px
+    border-radius: 40px
+    text-align: left
+    box-shadow: 10px 10px 20px $black-blue
+    cursor: pointer
+    margin-bottom: 60px
+    transition: 0.5s
+    &:hover
+        transform: scale(1.03)
+    &__title
+        text-align: center
+        text-transform: uppercase
+        font-size: 1.3em
+        font-weight: 500
+    &__wrapper
+        display: flex
+        justify-content: space-around
+        flex-wrap: wrap
+        color: $light-gray
+    &__icon
+        margin-right: 10px
+
+@media (max-width: 425px)
+    .post-list__item
+        padding: 15px
+        &__title
+            margin-bottom: 10px
+        &__author, &__rating, &__date
+            margin: 0

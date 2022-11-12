@@ -1,14 +1,16 @@
 import React from 'react';
-import { Header } from 'semantic-ui-react';
 
-import './style/normalize.css';
+import MainPage from './features/pages/MainPage';
+
+import './style/style.sass';
+import './app.sass';
 
 
 function App() {
   return (
-    <Header as="h1">
-      Hello world!
-    </Header>
+    <div className='app'>
+      <MainPage/>
+    </div>
   );
 }
 

@@ -1,26 +1,19 @@
 @import '../../style/variables'
 
-.page-main
+.page
     position: relative
     width: 100%
     margin: 0 auto
     &__wrapper
         width: 70vw
         margin: 0 auto
-    &__titles
-        position: sticky
-        top: 0
-        background: $dark
-        padding: 10px
-        margin-bottom: 30px
-        z-index: 2
 
 @media (max-width: 768px)
-    .page-main__wrapper
+    .page__wrapper
         width: 90vw
 
 @media (max-width: 425px)
-    .page-main
+    .page
         &__titles
             padding: 5px 0
         &__title, &__subtitle

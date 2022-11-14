@@ -1,16 +1,16 @@
 import React from 'react';
-import StoryList from '../storyList/StoryList';
+import StoryItem from '../storyItem/StoryItem';
 
 import './page.sass';
 
-const MainPage = () => {
+const StoryPage = () => {
     return (
         <div className='page'>
             <div className="page__wrapper">
-                <StoryList/>
+                <StoryItem/>
             </div>
         </div>
     );
 };
 
-export default MainPage;
+export default StoryPage;

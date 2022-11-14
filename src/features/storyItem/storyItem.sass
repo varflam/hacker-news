@@ -1,0 +1,39 @@
+@import '../../style/variables'
+
+.story-item
+    &__wrapper
+        text-align: left
+        background: $gray
+        padding: 30px
+        border-radius: 40px
+        box-shadow: 10px 10px 20px $black-blue
+        margin-bottom: 60px
+    &__title
+        text-align: center
+        text-transform: uppercase
+        font-size: 2em
+        font-weight: 500
+        margin-bottom: 50px
+    &__link
+        margin-bottom: 50px
+        span
+            cursor: pointer
+            color: $light-gray
+            &:hover
+                text-decoration: underline
+    &__info-wrapper
+        display: flex
+        justify-content: space-between
+        align-items: center
+    &__icon
+        margin-right: 10px
+    &__comments
+        text-align: left
+    &__comments-wrapper
+        background: $gray
+        padding: 30px
+        border-radius: 40px
+        box-shadow: 10px 10px 20px $black-blue
+    &__comments-title
+        text-align: center
+        font-size: 1.5em

@@ -1,0 +1,17 @@
+@import '../../style/variables'
+
+.comment-list__item
+    position: relative
+    margin-bottom: 60px
+    &::before
+        position: absolute
+        content: ''
+        bottom: -20px
+        left: 0
+        width: 100%
+        height: 1px
+        background: $light-gray
+    &__text
+        font-size: 1.2em
+    &__date
+        text-align: right

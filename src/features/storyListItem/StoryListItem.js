@@ -5,6 +5,10 @@ import { faUser, faStar, faCalendar } from '@fortawesome/free-regular-svg-icons'
 import './storyListItem.sass';
 
 const StoryListItem = ({title, by, score, time}) => {
+
+    const dateObj = new Date(time * 1000);
+    const date = dateObj.toLocaleString()
+
     return (
         <li className='story-list__item' tabIndex='0'>
             <h3 className="story-list__item__title">{title}</h3>
@@ -14,7 +18,7 @@ const StoryListItem = ({title, by, score, time}) => {
                 <p className='story-list__item__rating'>
                 <FontAwesomeIcon className="story-list__item__icon" icon={faStar} />{`Rating: ${score}`}</p>
                 <p className='story-list__item__date'> 
-                <FontAwesomeIcon className="story-list__item__icon" icon={faCalendar} />{`Date: ${time}`}</p>
+                <FontAwesomeIcon className="story-list__item__icon" icon={faCalendar} />{date}</p>
             </div>
         </li>
     );

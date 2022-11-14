@@ -1,10 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { hackerApiSlice } from '../api/apiSlice';
+import thunk from 'redux-thunk';
+import stories from '../app/slices/storiesSlice';
 
 export const store = configureStore({
   reducer: {
-    [hackerApiSlice.reducerPath]: hackerApiSlice.reducer
+    stories,
   },
-  middleware: getDefaultMiddleware => getDefaultMiddleware().concat(hackerApiSlice.middleware),
+  middleware: getDefaultMiddleware => getDefaultMiddleware().concat(thunk),
     devTools: process.env.NODE_ENV !== 'production'
 });

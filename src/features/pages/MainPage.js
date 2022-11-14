@@ -1,5 +1,5 @@
 import React from 'react';
-import PostList from '../postList/PostList';
+import StoryList from '../storyList/StoryList';
 import Button from '../button/Button';
 
 import './mainPage.sass';
@@ -12,8 +12,8 @@ const MainPage = () => {
                     <h2 className='page-main__subtitle'>100 latest news</h2>
             </div>
             <div className="page-main__wrapper">
-                <Button/>
-                <PostList/>
+                {/* <Button/> */}
+                <StoryList/>
             </div>
         </section>
     );

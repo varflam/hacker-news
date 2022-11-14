@@ -7,8 +7,8 @@ import './storyList.sass';
 
 const StoryList = () => {
     const dispatch = useDispatch();
-    const {stories} = useSelector(state => state.stories);
-    const {storiesIds} = useSelector(state => state.stories);
+    const stories = useSelector(state => state.stories.stories);
+    const storiesIds = useSelector(state => state.stories.storiesIds);
 
     const fetchData = async () => {
         await dispatch(fetchLatestStories());
@@ -31,7 +31,9 @@ const StoryList = () => {
     }, []);
 
     useEffect(() => {
-        dispatch(fetchStories(storiesIds));
+        if(storiesIds.length !== 0) {
+            dispatch(fetchStories(storiesIds));
+        }
     }, [storiesIds]);
 
 

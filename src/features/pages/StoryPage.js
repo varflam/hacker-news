@@ -1,13 +1,16 @@
 import React from 'react';
-import StoryItem from '../storyItem/StoryItem';
+import { useParams } from 'react-router-dom';
+import SingleStoryItem from '../SingleStoryItem/SingleStoryItem';
 
 import './page.sass';
 
 const StoryPage = () => {
+    const {storyId} = useParams();
+
     return (
         <div className='page'>
             <div className="page__wrapper">
-                <StoryItem/>
+                <SingleStoryItem id={storyId}/>
             </div>
         </div>
     );

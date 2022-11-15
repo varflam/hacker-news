@@ -38,9 +38,8 @@ const StoryList = () => {
 
 
     const elements = stories.map(({id, ...props}) => {
-            return <StoryListItem key={id} {...props}/>
+            return <StoryListItem key={id} id={id} {...props}/>
         });
-    console.log('render');
 
 
     return (

@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { getAllStories, getLatestStories } from '../../service/HackerNewsService';
+import { getAllItems, getLatestStories } from '../../service/HackerNewsService';
 
 const initialState = {
     storiesIds: [],
@@ -18,7 +18,7 @@ export const fetchLatestStories = createAsyncThunk(
 export const fetchStories = createAsyncThunk(
     'stories/fetchStories',
     storiesIds => {
-        const res = getAllStories(storiesIds);
+        const res = getAllItems(storiesIds);
         return res;
     }
 )

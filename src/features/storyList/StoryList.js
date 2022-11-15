@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchLatestStories, fetchStories } from '../../app/slices/storiesSlice';
 import StoryListItem from '../storyListItem/StoryListItem';

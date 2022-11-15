@@ -10,23 +10,23 @@ export const getLatestStories = async () => {
     }
 }
 
-export const getStory = async (id) => {
+export const getItem = async (id) => {
     try {
         const res = await fetch(`${_baseUrl}item/${id}.json`)
                       .then(res => res.json());;
         return res;
     } catch (e) {
-        console.log('Error while getting a story.');
+        console.log('Error while getting an item.');
     }
     
 }
 
-export const getAllStories = async (arr) => {
+export const getAllItems = async (arr) => {
     try {
-        const res = await Promise.all(arr.map(getStory));
+        const res = await Promise.all(arr.map(getItem));
 
         return res;
     } catch (e) {
-        console.log('Error while getting stories.');
+        console.log('Error while getting items.');
     }
 }

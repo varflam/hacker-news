@@ -1,0 +1,43 @@
+@import '../../style/variables'
+
+.story-list-skeleton
+    width: 100%
+    &__item
+        background: $gray
+        box-shadow: 10px 10px 20px $black-blue
+        border-radius: 40px
+        padding: 30px
+        margin-bottom: 60px
+        &:last-child
+            margin-bottom: 0
+        &__wrapper
+            display: flex
+            align-items: center
+            justify-content: space-between
+        &_big
+            height: 50px
+            background: $light-gray
+            margin-bottom: 50px
+        &_small
+            width: 300px
+            height: 30px
+            background: $light-gray
+
+@media (max-width: 425px)
+    .story-list-skeleton
+        &__item
+            &_big
+                margin-bottom: 20px
+
+.pulse
+    animation: pulse 1.5s ease-in-out .5s infinite
+
+@keyframes pulse
+    0%
+        opacity: 1
+
+    50%
+        opacity: .4
+
+    100%
+        opacity: 1

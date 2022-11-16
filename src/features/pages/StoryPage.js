@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import SingleStoryItem from '../SingleStoryItem/SingleStoryItem';
+import ErrorBoundary from '../errorBoundary/ErrorBoundary';
 
 import './page.sass';
 
@@ -10,7 +11,9 @@ const StoryPage = () => {
     return (
         <div className='page'>
             <div className="page__wrapper">
-                <SingleStoryItem id={storyId}/>
+                <ErrorBoundary>
+                    <SingleStoryItem id={storyId}/>
+                </ErrorBoundary>
             </div>
         </div>
     );

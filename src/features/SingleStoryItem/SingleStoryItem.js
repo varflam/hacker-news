@@ -1,9 +1,12 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import CommentList from '../commentList/CommentList';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faComments, faCalendar } from '@fortawesome/free-regular-svg-icons';
+import CommentList from '../commentList/CommentList';
+import ErrorBoundary from '../errorBoundary/ErrorBoundary';
+import { fetchStory } from '../../app/slices/storiesSlice';
+
 
 import './singleStoryItem.sass';
 
@@ -20,6 +23,7 @@ const SingleStoryItem = ({id}) => {
     //     url: "http://www.getdropbox.com/u/2/screencast.html"
     // }
     const {stories} = useSelector(state => state.stories);
+    const dispatch = useDispatch();
     const story = stories.find(story => story.id == id);
     
     const {title, by, time, url, kids} = story;
@@ -33,6 +37,10 @@ const SingleStoryItem = ({id}) => {
         } else {
             return null;
         }
+    }
+
+    const onUpdateComments = () => {
+        dispatch(fetchStory(id));
     }
 
     return (
@@ -51,10 +59,16 @@ const SingleStoryItem = ({id}) => {
                 </div>
             </div>
             <div className='story-item__comments'>
-                <button className="button">Update comments</button>
+                <button    
+                    className="button"
+                    onClick={onUpdateComments}>
+                        Update comments
+                </button>
                 <div className='story-item__comments-wrapper'>
                     <h3 className="story-item__comments-title">Comments</h3>
-                    <CommentList kids={kids}/>
+                    <ErrorBoundary>
+                        <CommentList kids={kids}/>
+                    </ErrorBoundary>
                 </div>
             </div>
             

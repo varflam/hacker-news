@@ -11,7 +11,7 @@ const CommentList = ({kids}) => {
 
     const onFetchComments = async () => {
         await getAllItems(kids)
-                .then(res => setComments(res));
+            .then(res => setComments(res));
     }
 
     useEffect(() => {

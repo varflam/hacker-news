@@ -20,17 +20,17 @@ const StoryList = () => {
     useEffect(() => {
         fetchData();
 
-        // const timeout = () => {
-        //     setTimeout(() => {
-        //         fetchData();
-        //         timeout();
-        //       }, 10000);
-        // };
+        const timeout = () => {
+            setTimeout(() => {
+                fetchData();
+                timeout();
+              }, 10000);
+        };
 
-        // timeout();
-        //   return () => {
-        //     clearTimeout(timeout);
-        //   };;
+        timeout();
+          return () => {
+            clearTimeout(timeout);
+          };;
     }, []);
 
     useEffect(() => {

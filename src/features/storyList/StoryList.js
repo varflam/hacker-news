@@ -24,13 +24,11 @@ const StoryList = () => {
             setTimeout(() => {
                 fetchData();
                 timeout();
-              }, 10000);
+              }, 60000);
         };
 
         timeout();
-          return () => {
-            clearTimeout(timeout);
-          };;
+          return () => clearTimeout(timeout);
     }, []);
 
     useEffect(() => {
@@ -39,11 +37,14 @@ const StoryList = () => {
         }
     }, [storiesIds]);
 
-    const elements = stories.map(({id, ...props}) => {
-            return <StoryListItem  
-                        key={id} 
-                        id={id} 
-                        {...props}/>
+    const elements = stories.map(story => {
+            if(story) {
+                const {id, ...props} = story;
+                return <StoryListItem  
+                key={id} 
+                id={id} 
+                {...props}/>
+            }
         });
 
     const setContent = () => {

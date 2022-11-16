@@ -28,7 +28,7 @@ All the data come from the Hacker API: https://github.com/HackerNews/API
 
 ## Setting up development environment 📍
 
-- `git clone https://github.com/varflam/hacker-news`
+- `git clone https://github.com/varflam/hacker-news.git`
 - `yarn install`
 - `yarn start`
 - App should now be running on `http://localhost:3000/`

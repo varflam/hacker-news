@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 import { getAllItems } from '../../service/HackerNewsService';
-// import { fetchComments } from '../../app/slices/storiesSlice';
 import CommentListItem from '../commentListItem/CommentListItem';
 
 import './commentList.sass';

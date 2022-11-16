@@ -24,14 +24,6 @@ export const fetchStories = createAsyncThunk(
     }
 );
 
-export const fetchComments = createAsyncThunk(
-    'stories/fetchComments',
-    commentsIds => {
-        const res = getAllItems(commentsIds);
-        return res;
-    }
-)
-
 const storiesSlice = createSlice({
     name: 'stories',
     initialState,
@@ -46,9 +38,6 @@ const storiesSlice = createSlice({
                 })
                 .addCase(fetchStories.fulfilled, (state, action) => {
                     state.stories = action.payload;
-                })
-                .addCase(fetchComments.fulfilled, (state, action) => {
-                    state.selectedStory.comments = action.payload;
                 })
     }
 });

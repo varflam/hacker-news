@@ -36,7 +36,6 @@ const StoryList = () => {
         }
     }, [storiesIds]);
 
-
     const elements = stories.map(({id, ...props}) => {
             return <StoryListItem  
                         key={id} 

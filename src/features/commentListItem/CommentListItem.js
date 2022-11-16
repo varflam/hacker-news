@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
 import DOMPurify from 'dompurify';
-import { getAllItems } from '../../service/HackerNewsService';
 import CommentList from '../commentList/CommentList';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faCalendar } from '@fortawesome/free-regular-svg-icons';
@@ -8,6 +7,8 @@ import { faUser, faCalendar } from '@fortawesome/free-regular-svg-icons';
 import './commentListItem.sass';
 
 const CommentListItem = ({by, time, text, id, kids }) => {
+    const [isNestedComments, setIsNestedComments] = useState(false);
+
     const dateObj = new Date(time * 1000);
     const date = dateObj.toLocaleString();
 
@@ -19,15 +20,15 @@ const CommentListItem = ({by, time, text, id, kids }) => {
         }
     }
 
-    const getNestedComments = async () => {
-        await getAllItems(kids).then(res => {
-            console.log(res);
-        });
+    const renderButton = () => {
+        if(kids && isNestedComments === false) {
+            return (
+                <button 
+                    onClick={() => setIsNestedComments(true)}
+                    className="button button_small">See more</button>
+            )
+        }
     }
-
-    const button = kids ? <button 
-        onClick={getNestedComments}
-        className="button button_small">See more</button> : null;
 
     return (
         <li className='comment-list__item'>
@@ -36,7 +37,8 @@ const CommentListItem = ({by, time, text, id, kids }) => {
             <p className="comment-list__item__text" dangerouslySetInnerHTML={setText()}></p>
             <p className="comment-list__item__date">
             <FontAwesomeIcon className="story-item__icon" icon={faCalendar} />{date}</p>
-            {button}
+            {renderButton()}
+            {isNestedComments ? <CommentList kids={kids}/> : null}
         </li>
     );
 };

@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { selectStory } from '../../app/slices/storiesSlice';
 import CommentList from '../commentList/CommentList';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faComments, faCalendar } from '@fortawesome/free-regular-svg-icons';
@@ -20,14 +19,8 @@ const SingleStoryItem = ({id}) => {
     //     type: "story",
     //     url: "http://www.getdropbox.com/u/2/screencast.html"
     // }
-    const dispatch = useDispatch();
     const {stories} = useSelector(state => state.stories);
     const story = stories.find(story => story.id == id);
-
-    useEffect(() => {
-        dispatch(selectStory(story));
-    });
-
     
     const {title, by, time, url, kids} = story;
 
@@ -53,7 +46,7 @@ const SingleStoryItem = ({id}) => {
                 <button className="button">Update comments</button>
                 <div className='story-item__comments-wrapper'>
                     <h3 className="story-item__comments-title">Comments</h3>
-                    <CommentList/>
+                    <CommentList kids={kids}/>
                 </div>
             </div>
             

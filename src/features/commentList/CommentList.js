@@ -1,17 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchComments } from '../../app/slices/storiesSlice';
+import { getAllItems } from '../../service/HackerNewsService';
+// import { fetchComments } from '../../app/slices/storiesSlice';
 import CommentListItem from '../commentListItem/CommentListItem';
 
 import './commentList.sass';
 
-const CommentList = () => {
-    const {selectedStory} = useSelector(state => state.stories);
-    const {kids, comments} = selectedStory;
-    const dispatch = useDispatch();
+const CommentList = ({kids}) => {
+    const [comments, setComments] = useState([]);
 
     const onFetchComments = async () => {
-        await dispatch(fetchComments(kids));
+        await getAllItems(kids)
+                .then(res => setComments(res));
     }
 
     useEffect(() => {

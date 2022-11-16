@@ -11,6 +11,8 @@
         width: 100%
         height: 1px
         background: $light-gray
+    &__dead
+        color: $light-gray
     &__text
         font-size: 1.2em
         overflow-wrap: break-word
@@ -21,3 +23,8 @@
         text-decoration: none
         &:hover
             text-decoration: underline
+
+@media (max-width: 768px)
+    .comment-list__item
+        &__text
+            font-size: 1em

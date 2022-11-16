@@ -27,12 +27,20 @@ const SingleStoryItem = ({id}) => {
     const dateObj = new Date(time * 1000);
     const date = dateObj.toLocaleString()
 
+    const renderUrl = () => {
+        if(url) {
+            return <p className="story-item__link">See more: <span>{url}</span></p>
+        } else {
+            return null;
+        }
+    }
+
     return (
         <div className='story-item'>
             <div className='story-item__wrapper'>
                 <Link to='/' className="story-item__back">Back</Link>
                 <h2 className="story-item__title">{title}</h2>
-                <p className="story-item__link">See more: <span>{url}</span></p>
+                <p className="story-item__link">{renderUrl()}</p>
                 <div className="story-item__info-wrapper">
                     <p className="story-item__author">
                         <FontAwesomeIcon className="story-item__icon" icon={faUser} />Author: {by}</p>

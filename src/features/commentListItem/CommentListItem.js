@@ -6,7 +6,7 @@ import { faUser, faCalendar } from '@fortawesome/free-regular-svg-icons';
 
 import './commentListItem.sass';
 
-const CommentListItem = ({by, time, text, id, kids }) => {
+const CommentListItem = ({by, time, text, dead, id, kids }) => {
     const [isNestedComments, setIsNestedComments] = useState(false);
 
     const dateObj = new Date(time * 1000);
@@ -34,7 +34,9 @@ const CommentListItem = ({by, time, text, id, kids }) => {
         <li className='comment-list__item'>
             <p className="comment-list__item__author">
             <FontAwesomeIcon className="story-item__icon" icon={faUser} />{by}</p>
-            <p className="comment-list__item__text" dangerouslySetInnerHTML={setText()}></p>
+            <p className="comment-list__item__text" dangerouslySetInnerHTML={setText()}>        
+                {dead ? <span className='comment-list__item__dead'>Sorry, comment is dead</span> : null}
+            </p>
             <p className="comment-list__item__date">
             <FontAwesomeIcon className="story-item__icon" icon={faCalendar} />{date}</p>
             {renderButton()}

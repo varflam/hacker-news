@@ -30,6 +30,7 @@
         margin-bottom: 50px
     &__link
         margin-bottom: 50px
+        overflow-wrap: break-word
         span
             cursor: pointer
             color: $light-gray
@@ -39,6 +40,7 @@
         display: flex
         justify-content: space-between
         align-items: center
+        flex-wrap: wrap
     &__icon
         margin-right: 10px
     &__comments
@@ -51,3 +53,19 @@
     &__comments-title
         text-align: center
         font-size: 1.5em
+
+@media (max-width: 768px)
+    .story-item
+        &__back
+            padding: 10 15px
+            font-size: 1em
+            margin-bottom: 15px
+        &__title
+            font-size: 1.5em
+            margin-bottom: 30px
+        &__link
+            margin-bottom: 30px
+        &__wrapper
+            margin-bottom: 30px
+        &__comments-wrapper
+            padding: 10px

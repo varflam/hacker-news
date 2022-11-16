@@ -12,7 +12,7 @@
         transform: scale(1.03)
     &__link
         display: inline-block
-        width: 100%
+        width: calc(100% - 60px)
         height: 100%
         padding: 30px
         color: $white
@@ -23,17 +23,22 @@
         font-size: 1.3em
         font-weight: 500
     &__wrapper
-        display: flex
-        justify-content: space-around
-        flex-wrap: wrap
+        display: grid
+        grid-template-columns: repeat(3, 1fr)
+        text-align: center
         color: $light-gray
     &__icon
         margin-right: 10px
 
+@media (max-width: 768px)
+    .story-list__item
+        &__wrapper
+            grid-template-columns: 1fr
+        &__author, &__rating, &__date
+            margin: 5px
+
 @media (max-width: 425px)
-    .post-list__item
+    .story-list__item
         padding: 15px
         &__title
             margin-bottom: 10px
-        &__author, &__rating, &__date
-            margin: 0
